@@ -32,7 +32,6 @@ public class TasksTest {
     @Test
     public void testeNaoDeveSalvarSemDescricao(){
         driver.findElement(By.id("addTodo")).click();
-        //driver.findElement(By.id("task")).sendKeys("Erro");
         driver.findElement(By.id("dueDate")).sendKeys("10/01/2010");
         driver.findElement(By.id("saveButton")).click();
         String mensagemCapturada = driver.findElement(By.id("message")).getText();
@@ -43,7 +42,6 @@ public class TasksTest {
     public void testeNaoDeveSalvarSemData(){
         driver.findElement(By.id("addTodo")).click();
         driver.findElement(By.id("task")).sendKeys("Erro");
-        //driver.findElement(By.id("dueDate")).sendKeys("10/01/2010");
         driver.findElement(By.id("saveButton")).click();
         String mensagemCapturada = driver.findElement(By.id("message")).getText();
         Assert.assertEquals("Fill the due date", mensagemCapturada);
