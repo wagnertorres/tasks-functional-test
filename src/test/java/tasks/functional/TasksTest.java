@@ -23,13 +23,13 @@ public class TasksTest {
         options.setHeadless(true);
         this.driver = new RemoteWebDriver(new URL("http://192.168.15.9:4444/wd/hub"), cap);
         driver.navigate().to("http://192.168.15.9:8001/tasks/");
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
     public void testeDeveSalvarTarefaComSucesso(){
         driver.findElement(By.id("addTodo")).click();
-        driver.findElement(By.id("task")).sendKeys("Tarefa 2021");
+        driver.findElement(By.id("task")).sendKeys("Tarefa 2021-1");
         driver.findElement(By.id("dueDate")).sendKeys("01/07/2021");
         driver.findElement(By.id("saveButton")).click();
         String mensagemCapturada = driver.findElement(By.id("message")).getText();
